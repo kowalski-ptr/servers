@@ -181,16 +181,24 @@ If you are doing local development, there are two ways to test your changes:
 
 2. Test using the Claude desktop app. Add the following to your `claude_desktop_config.json`:
 
+2.1 Using mcp-server-git on UV package installation. Add the following to your `claude_desktop_config.json`:
 ```json
 "git": {
   "command": "uv",
   "args": [
     "--directory",
-    "/<path to mcp-servers>/mcp-servers/src/git",
+    "<path to your local Git repository>",
     "run",
     "mcp-server-git"
   ]
-}
+},
+```
+2.2 Using mcp-server-git on PIP package installation. Add the following to your `claude_desktop_config.json`:
+```json
+"git": {
+  "command": "python",
+  "args": ["-m", "mcp_server_git", "--repository", "<path to your local Git repository>"]
+},
 ```
 
 ## License
